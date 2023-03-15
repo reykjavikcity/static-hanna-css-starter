@@ -1,0 +1,38 @@
+{
+  "name": "static-hanna-css-starter",
+  "description": "Starter repo, for writing your own CSS using TypeScript and leveraging Hanna design system's CSS variables/helpers",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": "Reykjavík (http://www.reykjavik.is)",
+  "contributors": [
+    "Már Örlygsson <mar.orlygsson@reykjavik.is>"
+  ],
+  "public": false,
+  "scripts": {
+    "start": "yarn run build  &&  yarn run server",
+    "server": "http-server _dist -p4200 --gzip --brotli",
+    "server:dev": "http-server _dist -p4200 -c-1",
+    "build": "yarn install  &&  yarn run build:prep  &&  yarn run build:js  &&  NODE_ENV=production yarn run build:css --minify",
+    "build:prep": "rm -rf _dist _build_temp  &&  mkdir _dist  &&  yarn run build:assets",
+    "build:assets": "(cp -R assets/* || exit 0) _dist/",
+    "build:assets:dev": "(cp -R dev-assets/* || exit 0) _dist/",
+    "build:js": "tsc --project tsconfig.json --outDir _build_temp",
+    "build:css": "es-in-css \"_build_temp/**/*.css.js\" --outdir _dist",
+    "dev": "yarn install  &&  yarn run build:prep  &&  yarn run build:assets:dev  &&  concurrently -k  \"yarn run server:dev\"  \"yarn run build:js:watch \"  \"yarn run build:css:watch\" \"yarn run build:assets:watch\"",
+    "build:assets:watch": "onchange 'assets/**' -f add -f change -- yarn run build:assets",
+    "build:js:watch": "yarn run build:js --watch --preserveWatchOutput",
+    "build:css:watch": "onchange '_build_temp/**/*.js' -f add -f change -- yarn run build:css --prettify"
+  },
+  "engines": {
+    "node": "^18"
+  },
+  "devDependencies": {
+    "@reykjavik/hanna-css": "^0.3.14",
+    "@types/node": "^18.15.3",
+    "concurrently": "^7.6.0",
+    "es-in-css": "^0.5.23",
+    "http-server": "^14.1.1",
+    "onchange": "^7.1.0",
+    "typescript": "^4.9.5"
+  }
+}

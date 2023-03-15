@@ -1,0 +1,12 @@
+# --------------------------------------------------------------------
+# deps and build/test results
+node_modules
+/_build_temp
+/_dist
+
+# --------------------------------------------------------------------
+# junk
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store

@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "lib": ["esnext"],
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "target": "ES5",
+    "resolveJsonModule": true,
+    "strict": true, // Always be strict.
+    "noUncheckedIndexedAccess": true, // Should be part of strict
+    "useUnknownInCatchVariables": true,
+  },
+  "exclude": ["node_modules", "_build", "public"],
+  "include": ["src/**/*.ts"]
+}
