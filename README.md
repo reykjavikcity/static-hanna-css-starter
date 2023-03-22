@@ -2,9 +2,9 @@
 
 Starter repo, for writing your own CSS using TypeScript and leveraging Hanna design system's CSS variables/helpers via the [`@reykjavik/hanna-css`][] package.
 
-Uses `tsc` and the [es-in-css][cli-compiler] to build all `/src/**/*.css.ts` files in to `/_dist/**/*.css`.
+Uses `tsc` and then [es-in-css][cli-compiler] to convert all `/src/**/*.css.ts` files into `/_dist/**/*.css`.
 
-(NOTE: The compiled CSS files are prettified in dev mode, but minified in production mode.)
+(NOTE: The built CSS files are prettified in dev mode, but minified in production mode.)
 
 It also copies all files from `/assets` into `/_dist`, but performs no processing on those files.
 
