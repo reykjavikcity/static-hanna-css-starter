@@ -27,7 +27,7 @@
     "node": "^18"
   },
   "devDependencies": {
-    "@reykjavik/hanna-css": "^0.3.14",
+    "@reykjavik/hanna-css": "^0.4.0",
     "@types/node": "^18.15.3",
     "concurrently": "^7.6.0",
     "es-in-css": "^0.5.23",
